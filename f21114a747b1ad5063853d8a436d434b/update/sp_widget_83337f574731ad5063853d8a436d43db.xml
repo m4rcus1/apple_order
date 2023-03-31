@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.ipad {
+	left:-10em;
+  top:10em;
+	color: #fff;
+	text-align: center;
+	font-family: 'SF Pro Display', Helvetica Neue, Arial, sans-serif;
+	letter-spacing: -.022em;
+	font-size: 2.5vmin;
+	text-shadow: 0 0 0.5em #000;
+	background-color: #000;
+	background-size: auto 200%, cover;
+	background-repeat: no-repeat, no-repeat;
+	border: solid #111;
+	margin-bottom: 2em;
+	position: relative;
+	box-shadow: 0 0.5em 2em 0.2em rgba(0, 0, 0, 0.33), 0 0 0 0.5px #000 inset;
+	transition: all .1s linear, line-height 0s linear;
+	background-position: 50% 100%, center;
+	transform-origin: bottom center;
+	&amp;:hover {
+		color: transparent;
+		text-shadow: 0 0 0em transparent;
+		background-position: 50% -100%, center center;
+		transition: all .15s linear, line-height 5s linear;
+		background-image:  linear-gradient(rgba(0,0,0,0), #111), url(https://images.squarespace-cdn.com/content/v1/55953f03e4b06734ad8e88a4/1573774780013-Q74A9DA01LWT2RF3OS75/NODD-iphone-%26-ipad.gif);
+		// box-shadow: 0 0.5em 3em 0.25em rgba(0, 0, 0, 0.33), 0 0 0 1px #000 inset;
+		// transform: scale(1.0025);
+		line-height: 0vmin;
+	}
+}
+
+
+
+.ipad {
+	$unit: 60vmin; 
+	margin-left: 2em;
+	height: 15em;
+	width: $unit/2;
+	line-height: 1.43*$unit;
+	border-width: 0.5em;
+	border-radius: 0.5em;
+	background-image:  linear-gradient(rgba(0,0,0,0), #111), url(https://i.pinimg.com/originals/9a/aa/1d/9aaa1d5723b5e20f258db26ccad93d35.gif);
+	z-index: 100;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>ipad</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Ipad</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 07:58:13</sys_created_on>
+        <sys_id>83337f574731ad5063853d8a436d43db</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>Ipad</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</sys_scope>
+        <sys_update_name>sp_widget_83337f574731ad5063853d8a436d43db</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+        <template><![CDATA[<figure class='ipad'></figure>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</claim_owner_scope>
+        <claim_timestamp>187372945d30000001</claim_timestamp>
+        <metadata_update_name>sp_widget_83337f574731ad5063853d8a436d43db</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Apple_Order</previous_claim_name>
+        <previous_claim_scope>f21114a747b1ad5063853d8a436d434b</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 10:14:24</sys_created_on>
+        <sys_id>ca62582b47b1ad5063853d8a436d430a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+    </sys_claim>
+</record_update>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope, spAriaUtil) {
+	$scope.accessibilityModeEnabled = spAriaUtil.isAccessibilityEnabled();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+.img {
+    background-size: default;
+    background-repeat: no-repeat;
+    background-position: center center;
+  	width:100%;
+   	height:45em;
+    position: relative;
+    z-index: 0;
+ 
+    overflow: hidden;
+}
+.pull-in{
+  border-radius:50px;
+}
+.carousel-control{
+  border-radius:50px;
+}
+.text-center {
+    text-align: center !important;
+}
+
+.align-items-center {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+}
+
+h1{
+			color:#1D1D1F !important;
+		  width: 300px;
+		  height: 300px;
+		  position: absolute;
+		  left: 50%;
+		  top: 35%;
+		  transform: translate(-50%, -50%);
+}
+h2,a{
+			color:#1D1D1F !important;
+		 	padding-left:10%;
+  		padding-right:10%;
+  		border-radius:2em;
+		  position: absolute;
+		  left: 50%;
+		  top: 25%;
+		  transform: translate(-50%, -50%);
+}
+a:hover,h2:hover{
+	color:#01778e !important;
+  background-color:transparent !important;
+}
+h3{
+		
+		  width: 300px;
+		  height: 300px;
+		  position: absolute;
+		  left: 57%;
+		  top: 45%;
+		  transform: translate(-50%, -50%);
+}
+p{
+color:#1D1D1F !important;
+		  width: 300px;
+		  height: 300px;
+		  position: absolute;
+		  left: 63%;
+		  top: 90%;
+		  transform: translate(-50%, -50%);
+}
+</css>
+        <data_table>sp_instance_link</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>type,url,sc_category,sc_cat_item,kb_topic,kb_article,kb_category,sp_page,title,short_description,color,class_name,glyph</field_list>
+        <has_preview>false</has_preview>
+        <id>imgs2</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>ImgS2</name>
+        <option_schema>[{"name":"link_template","section":"Presentation","label":"Template","type":"choice","choices":[{"label":"Top Icon","value":"Top Icon"},{"label":"Circle Icon","value":"Circle Icon"},{"label":"Color Box","value":"Color Box"}]}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function(){
+	var gr = $sp.getInstanceRecord();
+	data.href = $sp.getMenuHREF(gr);
+	data.target = options.target || "";
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-25 07:15:42</sys_created_on>
+        <sys_id>3dff246d47f9a55063853d8a436d435d</sys_id>
+        <sys_mod_count>103</sys_mod_count>
+        <sys_name>ImgS2</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</sys_scope>
+        <sys_update_name>sp_widget_3dff246d47f9a55063853d8a436d435d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:25</sys_updated_on>
+        <template><![CDATA[ 
+<div class="img d-flex align-items-center justify-content-center" style="background-image: url({{::options.u_img_link}});background-size:cover;">
+
+           <h1 style="color:{{::options.u_text_color}} !important;text-align:center !important;">
+                   <b>{{::options.title}}</b> 
+     		 	</h1>
+					<a ng-href="{{::data.href}}" target="{{::data.target}}" style=' all: none;'> 
+  				<h2 style="background-color:#01778e !important;color:white !important; text-align:center !important;">
+                   <b><i class="fa fa-shopping-cart" aria-hidden="true"></i></b>
+            
+            		 
+     		 	</h2>
+  			  </a>
+
+
+
+
+  			
+</div>
+
+]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</claim_owner_scope>
+        <claim_timestamp>187372948170000001</claim_timestamp>
+        <metadata_update_name>sp_widget_3dff246d47f9a55063853d8a436d435d</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Apple_Order</previous_claim_name>
+        <previous_claim_scope>f21114a747b1ad5063853d8a436d434b</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 10:14:25</sys_created_on>
+        <sys_id>0662582b47b1ad5063853d8a436d433d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:25</sys_updated_on>
+    </sys_claim>
+</record_update>
