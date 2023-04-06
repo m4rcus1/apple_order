@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.macbook {
+  width: 43.6em;
+  margin-top:13em;
+  margin-left:-27em;
+}
+
+.display {
+  background-color: #000;
+  overflow: hidden;
+  width: 35.44em;
+  height: 23.04em;
+  margin: auto;
+  border-top-right-radius: 1.088em;
+  border-top-left-radius: 1.088em;
+  position: relative;
+
+  &amp;:before {
+    content: "";
+    width: 3.84em;
+    height: 0.704em;
+    background: #000;
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-bottom-left-radius: 0.4em;
+    border-bottom-right-radius: 0.4em;
+    z-index: 999;
+  }
+
+  &amp;:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 28.125em solid rgba(255, 255, 255, 0.18);
+    border-left: 18.75em solid transparent;
+    position: absolute;
+    top: -2;
+    right: 0;
+    z-index: 150;
+  }
+}
+
+.screen {
+  z-index: 100;
+  top: 1.5%;
+  left: 1%;
+  border-top-right-radius: 1.2em;
+  border-top-left-radius: 1.2em;
+  width: 98%;
+  height: 96%;
+  margin: auto;
+  position: absolute;
+  background: url('https://images.squarespace-cdn.com/content/v1/55953f03e4b06734ad8e88a4/1573775116788-G9T1SL3DK6K85ZEVZ05I/NODD-macbook.gif')
+    no-repeat;
+  background-size: cover;
+}
+
+.base {
+  height: 0.8em;
+  width: 43.6em;
+  background-color: #eff0f4;
+  position: relative;
+
+  &amp;:after,
+  &amp;:before {
+    width: 2.56em;
+    height: 100%;
+    content: "";
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      rgba(226, 228, 227, 0.35) 0%,
+      rgba(140, 141, 145, 0.35) 51%,
+      rgba(226, 228, 227, 0.35) 99%,
+      rgba(226, 228, 227, 0.35) 100%
+    );
+  }
+
+  &amp;:before {
+    left: 0;
+  }
+}
+
+.bottom {
+  height: 0.352em;
+  width: 43.52m;
+  margin: auto;
+  background: linear-gradient(
+    to bottom,
+    rgba(153, 154, 158, 0.75) 30%,
+    rgba(44, 45, 47, 0.6) 90%
+  );
+  border-bottom-right-radius: 8em;
+  border-bottom-left-radius: 8em;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.05), 0 15px 12px rgba(0, 0, 0, 0.05);
+}
+
+.indent {
+  height: 0.48em;
+  width: 6.4em;
+  margin: auto;
+  background: linear-gradient(
+    to bottom,
+    rgba(153, 154, 158, 0.75) 30%,
+    rgba(44, 45, 47, 0.6) 90%
+  );
+  border-bottom-right-radius: 8em;
+  border-bottom-left-radius: 8em;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>macbook</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Macbook</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 07:14:58</sys_created_on>
+        <sys_id>61592f1f47fd6d5063853d8a436d43ef</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Macbook</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</sys_scope>
+        <sys_update_name>sp_widget_61592f1f47fd6d5063853d8a436d43ef</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+        <template><![CDATA[<div class="macbook">
+  <div class="display">
+    <div class="screen"></div>
+  </div>
+  <div class="base">
+    <div class="indent"></div>
+  </div>
+  <div class="bottom"></div>
+</div>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</claim_owner_scope>
+        <claim_timestamp>1873729463f0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_61592f1f47fd6d5063853d8a436d43ef</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Apple_Order</previous_claim_name>
+        <previous_claim_scope>f21114a747b1ad5063853d8a436d434b</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 10:14:24</sys_created_on>
+        <sys_id>4662582b47b1ad5063853d8a436d4312</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+    </sys_claim>
+</record_update>

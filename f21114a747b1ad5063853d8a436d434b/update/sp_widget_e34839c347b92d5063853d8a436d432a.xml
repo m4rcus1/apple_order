@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($http, $window, $scope, $document, spUtil)  {
+  /* widget controller */
+  var c = this;
+	
+}
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>$black: #0d0d0d;
+$grey: #262626;
+
+
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+  margin-left:-10em;
+}
+
+.device {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	position: relative;
+	top: 1rem;
+	width: 376px;
+	height: 812px;
+	border-radius: 39px;
+	box-sizing: border-box;
+	transform: rotate(6deg) scale(.85);
+	box-shadow:
+		25px 60px 125px -25px transparentize($black, .5),
+		20px 40px 75px -35px transparentize($black, .4),
+		0 0 0 20px $black,
+		0 0 0 22px lighten($black, 5%);
+}
+
+$offset: -25px;
+
+.ringer-switch {
+	position: absolute;
+	top: 110px;
+	left: $offset;
+	height: 30px;
+	width: 3px;
+	background: $black;
+	border-radius: 3px 0 0 3px;
+}
+
+.volume {
+	position: absolute;
+	left: $offset;
+	height: 65px;
+	width: 3px;
+	background: $black;
+	border-radius: 3px 0 0 3px;
+	
+	&amp;.plus {
+		top: 170px;
+	}
+	
+	&amp;.minus {
+		top: 250px;
+	}
+}
+
+.side-button {
+	position: absolute;
+	top: 180px;
+	right: $offset;
+	height: 95px;
+	width: 3px;
+	background: $black;
+	border-radius: 0 3px 3px 0;
+}
+
+.display {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: black;
+	overflow: hidden;
+	border-radius: 39px;
+}
+
+.notch {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 206px;
+	height: 30px;
+	margin: 0 auto;
+	background: $black;
+	border-radius: 0 0 20px 20px;
+	
+	span {
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		display: block;
+		overflow: hidden;		
+		
+		&amp;:nth-child(1) {
+			left: -6px;
+			background: radial-gradient(circle at bottom left, transparent 6px, $black 3px);
+		}
+		
+		&amp;:nth-child(2) {
+			right: -6px;
+			background: radial-gradient(circle at bottom right, transparent 6px, $black 3px);
+		}
+	}
+}
+
+.speaker,
+.camera {
+	position: absolute;
+	top: 7px;
+	height: 8px;
+	z-index: 1;
+}
+
+.speaker {
+	display: block;
+	left: 0;
+	right: 0;
+	width: 45px;
+	margin: 0 auto;
+	border-radius: 4px;
+	box-shadow: inset 0 0 1px 2px transparentize(black, .7);
+	background: $grey;
+}
+
+.camera {
+	right: 140px;
+	width: 8px;
+	border: 2px solid lighten($black, 4%);
+	border-radius: 50%;
+	box-sizing: border-box;
+	background: MidnightBlue;
+}
+
+.icons-top {
+	position: absolute;
+	top: 18px;
+	left: 292px;
+	width: 70px;
+	height: 12px;
+	z-index: 1;
+	
+	&amp;::after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 22px;
+		left: 0;
+		right: 0;
+		width: 50px;
+		height: 2px;
+		margin: 0 auto;
+		border-radius: 1px;
+		background: transparentize(white, .6);
+	}
+	
+	.cell {
+		display: flex;
+		height: 100%;
+		
+		span {
+			display: block;
+			align-self: flex-end;
+			width: 3px;
+			background: white;
+			border-radius: 1px;
+			
+			&amp;:not(:last-child) {
+				margin-right: 2px;
+			}
+			
+			&amp;:nth-child(1) {
+				height: 4px;
+			}
+			
+			&amp;:nth-child(2) {
+				height: 6px;
+			}
+			
+			&amp;:nth-child(3) {
+				height: 8px;
+			}
+			
+			&amp;:nth-child(4) {
+				height: 10px;
+				opacity: .5;
+			}
+		}
+	}
+	
+	.wifi {
+		position: relative;
+		transform: rotate(-45deg);
+		position: absolute;
+		left: 31px;
+		
+		span {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			border: {
+				color: white;
+				style: solid;
+				width: 2px 2px 0 0;
+				radius: 0 100% 0 0;
+			}
+			
+			&amp;:nth-child(1) {
+				width: 9px;
+  			height: 9px;
+			}
+			
+			&amp;:nth-child(2) {
+				width: 5px;
+  			height: 5px;
+			}
+			
+			&amp;:nth-child(3) {
+				width: 1px;
+  			height: 1px;
+				background: white;
+			}
+		}
+	}
+	
+	.battery {
+		position: absolute;
+		left: 44px;
+		top: 0;
+		width: 22px;
+		height: 10px;
+		border: 1px solid transparentize(white, .6);
+		border-radius: 3px;
+		
+		&amp;::after {
+			content: '';
+			position: absolute;
+			top: 3px;
+			right: -5px;
+			width: 2px;
+			height: 4px;
+			background: transparentize(white, .6);
+			border-bottom-right-radius: 50%;
+  		border-top-right-radius: 50%;
+		}
+		
+		span {
+			position: absolute;
+			left: 2px;
+			top: 2px;
+			height: 6px;
+			width: 10px;
+			background: white;
+			border-radius: 1px;
+		}
+	}
+}
+
+.icon-lock {
+	position: absolute;
+	top: 4.5rem;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 24px;
+	height: 22px;
+	background: white;
+	border-radius: 2px;
+	
+	&amp;::before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: -15px;
+		left: 0;
+		right: 0;
+		width: 12px;
+		height: 12px;
+		margin: 0 auto;
+		border: 3px solid white;
+		border-top-right-radius: 50%;
+		border-top-left-radius: 50%;
+	}
+}
+
+.date-time {
+	position: absolute;
+	top: 6.5rem;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 22px;
+	#time {
+		font-size: 75px;
+		font-weight: 100;
+	}
+}
+
+.button {
+	position: absolute;
+	width: 54px;
+	height: 54px;
+	bottom: 3rem;
+	border-radius: 50%;
+	background: transparentize(black, .8);
+	
+	&amp;--left,
+	&amp;--right {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	&amp;--left {
+		left: 3rem;
+	}
+	
+	&amp;--right {
+		right: 3rem;
+	}
+}
+
+.swipe {
+	position: absolute;
+	bottom: 1rem;
+	width: 100%;
+	font-size: 17px;
+	text-align: center;
+	opacity: 0;
+	animation-name: swipe-p;
+  animation-duration: 4s;
+  animation-iteration-count: 2;
+	animation-delay: .5s;
+	animation-timing-function: ease-in-out;
+}
+
+.home-bar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 8px;
+	width: 130px;
+	height: 5px;
+	margin: 0 auto;
+	background: transparentize(white, .2);
+	opacity: .75;
+	border-radius: 5px;
+	animation-name: swipe-bar;
+  animation-duration: 4s;
+  animation-iteration-count: 2;
+	animation-delay: .5s;
+	animation-timing-function: ease-in-out;
+}
+
+video {
+	width: auto;
+	height: 100%;
+}
+
+@keyframes swipe-p {
+  0% {
+    opacity: 0; 
+		transform: translateY(1rem);
+  }
+	25% {
+    opacity: 0; 
+		transform: translateY(1rem);
+  }
+  50% {
+    opacity: 1;
+		transform: translateY(0);
+  }
+	75% {
+    opacity: 1; 
+  }
+  100% {  
+    opacity: 0;    
+  }
+}
+
+@keyframes swipe-bar {
+  0% {
+		transform: translateY(0);
+  }
+	25% {
+		transform: translateY(0);
+  }
+	50% {
+		transform: translateY(-.5rem);
+  }
+	75% {
+		transform: translateY(0);
+  }
+  100% {
+		transform: translateY(0);
+  }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>scrollapplewatch</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+
+}]]></link>
+        <name>ScrollAppleWatch</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-30 04:22:39</sys_created_on>
+        <sys_id>e34839c347b92d5063853d8a436d432a</sys_id>
+        <sys_mod_count>76</sys_mod_count>
+        <sys_name>ScrollAppleWatch</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</sys_scope>
+        <sys_update_name>sp_widget_e34839c347b92d5063853d8a436d432a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+        <template><![CDATA[<script>
+	var myVar = setInterval(function(){ myTimer() }, 1000);
+
+function myTimer() {
+  var d = new Date();
+	var t = d.toLocaleTimeString([], {
+		hour: '2-digit', minute:'2-digit'
+	});
+	
+  var date = d.toLocaleDateString([], {
+		day: '2-digit'
+	});
+  
+  var weekday = new Array(7);
+  weekday[0] = "Sunday,";
+  weekday[1] = "Monday,";
+  weekday[2] = "Tuesday,";
+  weekday[3] = "Wednesday,";
+  weekday[4] = "Thursday,";
+  weekday[5] = "Friday,";
+  weekday[6] = "Saturday,";
+
+  var day = weekday[d.getDay()];
+	
+	var month = new Array(12);
+  month[0] = "January";
+  month[1] = "February";
+  month[2] = "March";
+  month[3] = "April";
+	month[4] = "May";
+	month[5] = "June";
+	month[6] = "July";
+	month[7] = "August";
+  month[8] = "September";
+  month[9] = "October";
+  month[10] = "November";
+	month[11] = "December";
+
+  var month = month[d.getDay()];
+  
+  document.getElementById("date").innerHTML = day + " " + month + " " + date.replace(/^0(?:0:0?)?/, '');
+	document.getElementById("time").innerHTML = t;
+};
+</script>
+<div class="wrapper">
+	<div class="device">
+		<div class="ringer-switch"></div>
+		<div class="volume plus"></div>
+		<div class="volume minus"></div>
+		<div class="side-button"></div>
+		<div class="display">
+			<div class="speaker"></div>
+			<div class="camera"></div>
+			<div class="notch">
+				<span></span>
+				<span></span>
+			</div>
+			<div class="icons-top">
+				<div class="cell">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="wifi">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div class="battery">
+					<span></span>
+				</div>
+			</div>
+			<div class="icon-lock"></div>
+			<div class="date-time">
+				<div id="time"></div>
+				<div id="date"></div>
+			</div>
+			<video autoplay muted loop>
+				<source src="https://v.redd.it/clguls7deun11/DASH_4_8_M" type="video/mp4">
+			</video>
+			
+				<p class="swipe">Swipe up to open</p>
+			<div class="home-bar"></div>
+		</div>
+	</div>
+</div>
+]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</claim_owner_scope>
+        <claim_timestamp>1873729450d0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_e34839c347b92d5063853d8a436d432a</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Apple_Order</previous_claim_name>
+        <previous_claim_scope>f21114a747b1ad5063853d8a436d434b</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 10:14:24</sys_created_on>
+        <sys_id>7d6210e747b1ad5063853d8a436d43f1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+    </sys_claim>
+</record_update>

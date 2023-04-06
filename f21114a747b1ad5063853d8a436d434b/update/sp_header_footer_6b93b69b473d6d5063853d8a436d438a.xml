@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>footer {&#13;
+  position: fixed;&#13;
+  bottom: 0;&#13;
+  background-color:#434344;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Footer</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 03:20:24</sys_created_on>
+        <sys_id>6b93b69b473d6d5063853d8a436d438a</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>Footer</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</sys_scope>
+        <sys_update_name>sp_header_footer_6b93b69b473d6d5063853d8a436d438a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+        <template><![CDATA[<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container" style="margin:0 !important;padding:0 !important;">
+
+  <footer class=" text-center text-white" style='width:135.5em;'>
+  <!-- Grid container -->
+  <div class="container ">
+     
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-primary btn-floating m-5"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="fa fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-primary btn-floating m-5"
+        style="background-color: #55acee;"
+        href="#!"
+        role="button"
+        ><i class="fa fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-primary btn-floating m-5"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="fa fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="fa fa-instagram"></i
+      ></a>
+
+     
+      <!-- Github -->
+      <a
+        class="btn btn-primary btn-floating m-5"
+        style="background-color: #333333;"
+        href="#!"
+        role="button"
+        ><i class="fa fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+
+</footer>
+  
+</div>
+<!-- End of .container -->]]></template>
+    </sp_header_footer>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</claim_owner_scope>
+        <claim_timestamp>187372946770000001</claim_timestamp>
+        <metadata_update_name>sp_header_footer_6b93b69b473d6d5063853d8a436d438a</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Apple_Order</previous_claim_name>
+        <previous_claim_scope>f21114a747b1ad5063853d8a436d434b</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 10:14:24</sys_created_on>
+        <sys_id>8262582b47b1ad5063853d8a436d4316</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:24</sys_updated_on>
+    </sys_claim>
+</record_update>

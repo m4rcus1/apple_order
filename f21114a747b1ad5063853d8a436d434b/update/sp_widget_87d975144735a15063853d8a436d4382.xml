@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;	
+	console.log('hello1'+c.data.jso)
+  const apiUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=BABA&apikey=9I9TEYBJGPTSE73G";
+	
+     fetch(apiUrl)
+        .then(response => response.json())
+        .then(xasdsad => {
+		
+			 	 var data1=JSON.parse(c.data.jso);
+			 	 console.log('hello2'+JSON.stringify(data1))
+	 				var dates = Object.keys(data1["Time Series (Daily)"]).reverse();
+          var openPrices = [];
+          var closePrices = [];
+          var highPrices = [];
+          var lowPrices = [];
+
+          // Extract data from API response
+          for (let i = 0; i < dates.length; i++) {
+            var date = dates[i];
+            openPrices.push(data1["Time Series (Daily)"][date]["1. open"]);
+            closePrices.push(data1["Time Series (Daily)"][date]["4. close"]);
+            highPrices.push(data1["Time Series (Daily)"][date]["2. high"]);
+            lowPrices.push(data1["Time Series (Daily)"][date]["3. low"]);
+          }
+
+          // Create chart data
+         var chartData = {
+            labels: dates,
+            
+            datasets: [
+              {
+                label: "Open Prices",
+                data: openPrices,
+                borderColor: "blue",
+                fill: false
+              },
+              {
+                label: "Close Prices",
+                data: closePrices,
+                borderColor: "red",
+                fill: false
+              },
+              {
+                label: "High Prices",
+                data: highPrices,
+                borderColor: "green",
+                fill: false
+              },
+              {
+                label: "Low Prices",
+                data: lowPrices,
+                borderColor: "orange",
+                fill: false
+              }
+            ]
+          };
+
+          // Create chart options
+          const chartOptions = {
+            responsive: true,
+          
+            
+          };
+
+          // Draw chart
+          const ctx = document.getElementById("myChart").getContext("2d");
+          const myChart = new Chart(ctx, {
+            type: "line",
+            data: chartData,
+            options: chartOptions
+          });
+         
+        });
+				
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>stockchart</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>StockChart</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	var gr=new GlideRecord('u_stock_company');
+	gr.orderByDesc('u_date_stock');
+	gr.query();
+	var tj={};
+	var temp={};
+	while(gr.next()){
+		var obj={};
+		obj['1. open']=''+gr.u_open_price
+		obj['2. high']=''+gr.u_high_value
+		obj['3. low']=''+gr.u_low_value
+		obj['4. close']=''+gr.u_close_price
+		obj['6. volume']=''+gr.u_volume
+	
+
+		gs.info('log123lob=g'+obj);
+		temp[gr.u_date_stock]=obj;
+	}
+	tj["Time Series (Daily)"]=temp;
+	gs.info('log123'+JSON.stringify(tj));
+	data.jso=JSON.stringify(tj);
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-21 15:26:09</sys_created_on>
+        <sys_id>87d975144735a15063853d8a436d4382</sys_id>
+        <sys_mod_count>136</sys_mod_count>
+        <sys_name>StockChart</sys_name>
+        <sys_package display_value="Global" source="global">global</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</sys_scope>
+        <sys_update_name>sp_widget_87d975144735a15063853d8a436d4382</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:25</sys_updated_on>
+        <template><![CDATA[<div id='chart1' data-options="{{::options}}">		
+  <input type='hidden' value={{option.data.jso}} id='jso' />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 		<center></center>
+    <canvas id="myChart" style='color:white !important' ></canvas>
+    <script>
+     
+       </script>
+</div>]]></template>
+    </sp_widget>
+    <sys_claim action="INSERT_OR_UPDATE">
+        <claim_owner_scope display_value="Apple_Order">f21114a747b1ad5063853d8a436d434b</claim_owner_scope>
+        <claim_timestamp>1873729489d0000001</claim_timestamp>
+        <metadata_update_name>sp_widget_87d975144735a15063853d8a436d4382</metadata_update_name>
+        <previous_claim_app_version>1.0.0</previous_claim_app_version>
+        <previous_claim_name>Apple_Order</previous_claim_name>
+        <previous_claim_scope>f21114a747b1ad5063853d8a436d434b</previous_claim_scope>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-31 10:14:25</sys_created_on>
+        <sys_id>8e62582b47b1ad5063853d8a436d4344</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-31 10:14:25</sys_updated_on>
+    </sys_claim>
+</record_update>
